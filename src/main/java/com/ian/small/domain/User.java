@@ -1,9 +1,7 @@
 package com.ian.small.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class User {
@@ -11,9 +9,15 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @NotNull
     private String username;
+    @NotNull
     private String password;
+    @NotNull
+    private String alias;
+    private String tel;
+
+
 
 
 }
