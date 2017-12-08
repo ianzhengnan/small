@@ -5,6 +5,7 @@ import org.hibernate.annotations.Type;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -19,6 +20,8 @@ public class Material implements Serializable {
     private List<Attribute> saleAttrs;
     @NotNull
     private Integer quantity;
+    @NotNull
+    private BigDecimal price;
     @Lob
     @Basic(fetch = FetchType.LAZY)
     @Type(type = "text")
@@ -28,9 +31,10 @@ public class Material implements Serializable {
 
     }
 
-    public Material(Product spu, Integer quantity) {
+    public Material(Product spu, Integer quantity, BigDecimal price) {
         this.spu = spu;
         this.quantity = quantity;
+        this.price = price;
     }
 
     public Long getId() {
@@ -71,5 +75,13 @@ public class Material implements Serializable {
 
     public void setDetail(String detail) {
         this.detail = detail;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 }
