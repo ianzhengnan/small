@@ -13,10 +13,14 @@ public class Payment implements Serializable {
     @GeneratedValue
     private Long id;
     @NotNull
-    private String desc;
+    private String desct;
+
+    public Payment() {
+
+    }
 
     public Payment(String desc) {
-        this.desc = desc;
+        this.desct = desc;
     }
 
     public Long getId() {
@@ -27,11 +31,11 @@ public class Payment implements Serializable {
         this.id = id;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDesct() {
+        return desct;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDesct(String desct) {
+        this.desct = desct;
     }
 }

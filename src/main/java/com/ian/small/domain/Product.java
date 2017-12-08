@@ -12,10 +12,12 @@ public class Product implements Serializable {
     @GeneratedValue
     private Long id;
     @NotNull
+    @OneToOne
     private Brand brand;
     @NotNull
     private String name;
     @NotNull
+    @ManyToOne
     private Catalog catalog;
     @ManyToMany(fetch = FetchType.LAZY)
     private List<Attribute> attrs;

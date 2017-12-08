@@ -1,10 +1,9 @@
 package com.ian.small.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Cart implements Serializable {
@@ -15,21 +14,20 @@ public class Cart implements Serializable {
     @NotNull
     private Integer itemId;
     @NotNull
+    @OneToOne
     private User user;
     @NotNull
-    private Material sku;
-    @NotNull
-    private Integer quantity;
+    @ManyToMany
+    private List<Material> skus;
 
     public Cart() {
 
     }
 
-    public Cart(Integer itemId, User user, Material sku, Integer quantity) {
+    public Cart(Integer itemId, User user, List<Material> skus) {
         this.itemId = itemId;
         this.user = user;
-        this.sku = sku;
-        this.quantity = quantity;
+        this.skus = skus;
     }
 
     public Long getId() {
@@ -56,19 +54,12 @@ public class Cart implements Serializable {
         this.user = user;
     }
 
-    public Material getSku() {
-        return sku;
+    public List<Material> getSkus() {
+        return skus;
     }
 
-    public void setSku(Material sku) {
-        this.sku = sku;
+    public void setSkus(List<Material> skus) {
+        this.skus = skus;
     }
 
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
 }

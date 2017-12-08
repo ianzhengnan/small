@@ -15,6 +15,7 @@ public class Material implements Serializable {
     @GeneratedValue
     private Long id;
     @NotNull
+    @ManyToOne
     private Product spu;
     @OneToMany
     private List<Attribute> saleAttrs;

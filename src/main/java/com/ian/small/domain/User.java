@@ -25,6 +25,8 @@ public class User implements Serializable{
     private Date lastLogonAt;
     @OneToMany
     private List<Account> accounts;
+    @ManyToMany
+    private List<Product> products;
 
     public User() {
 
@@ -114,5 +116,13 @@ public class User implements Serializable{
 
     public void setAccounts(List<Account> accounts) {
         this.accounts = accounts;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }
