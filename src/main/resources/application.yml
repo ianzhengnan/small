@@ -9,3 +9,9 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/small
     username: root
     password: 1234567
+  data:
+    rest:
+      base-path: /api
+  jackson:
+    serialization:
+      indent_output: true
